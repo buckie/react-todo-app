@@ -1,4 +1,4 @@
-react-todo-app
+React.js to-do app
 ==============
 
-simple to-do list app in react.js 
+Learning React by coding up a simple to-do list app. 
