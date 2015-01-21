@@ -1,10 +1,50 @@
+
+
 var ToDoList = React.createClass({
+    loadListFromServer: function() {
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            success: function(data) {
+                this.setState({data: data});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+    },
+    handleItemSubmit: function(item) {
+        console.log("submit function successful");
+        var items = this.state.data;
+        items.push(item);
+        this.setState({data: items}, function() {
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            type: 'POST',
+            data: item,
+            success: function(data) {
+                this.setState({data: data});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+        });
+    },
+    getInitialState: function() {
+        return {data: []};
+    },
+    componentDidMount: function() {
+        this.loadListFromServer();
+        setInterval(this.loadListFromServer, this.props.pollInterval);
+    },
     render: function() {
         return (
             <div className="ToDoList">
                 <h1>To Do List</h1>
-                <ToDoItems />
-                <CreateNewItem />
+                <ToDoItems data={this.state.data} />
+                <CreateNewItem onItemSubmit={this.handleItemSubmit} />
             </div>
             );
     }
@@ -13,11 +53,15 @@ var ToDoList = React.createClass({
 
 var ToDoItems = React.createClass({
     render: function() {
+        var listNodes = this.props.data.map(function (data, index) {
+            return (
+                <Item label={data.label}  key={index}/>
+                );
+        });
         return (
-            <div className="toDoItems">
-                <Item label="item 1" />
-                <Item label="item 2" />
-            </div>
+            <div class="toDoItems">
+                {listNodes}
+                </div>
             );
     }
 });
@@ -27,7 +71,7 @@ var Item = React.createClass({
         return (
             <div className="toDoItem">
                 <h2 className="label">
-                 {this.props.label}
+                {this.props.label}
                 </h2>
                 <input type="checkbox" />
             </div>
@@ -36,11 +80,22 @@ var Item = React.createClass({
 });
 
 var CreateNewItem= React.createClass({
+    handleSubmit: function(e) {
+        e.preventDefault();
+        var label = this.refs.label.getDOMNode().value.trim();
+        if (!label) {
+            return;
+        }
+        this.props.onItemSubmit({label:label});
+        this.refs.label.getDOMNode().value = '';
+        return;
+    },
     render: function() {
         return (
-            <div className="createNewItem">
-            Hello, world! I am a form for creating a new to-do item
-            </div>
+            <form className="listForm" onSubmit={this.handleSubmit}>
+                <input type="text" placeholder="enter a label" ref="label"/>
+                <input type="submit" value="Post" />
+            </form>
             );
     }
 });
@@ -48,6 +103,6 @@ var CreateNewItem= React.createClass({
 
 
 React.render(
-    <ToDoList />,
+    <ToDoList url="list.json" pollInterval={2000} />,
     document.getElementById('content')
 );
