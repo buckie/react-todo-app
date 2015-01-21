@@ -43,8 +43,8 @@ var ToDoList = React.createClass({
         return (
             <div className="ToDoList">
                 <h1>To Do List</h1>
-                <ToDoItems data={this.state.data} />
                 <CreateNewItem onItemSubmit={this.handleItemSubmit} />
+                <ToDoItems data={this.state.data} />
             </div>
             );
     }
