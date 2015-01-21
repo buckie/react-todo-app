@@ -55,7 +55,7 @@ var ToDoItems = React.createClass({
     render: function() {
         var listNodes = this.props.data.map(function (data, index) {
             return (
-                <Item label={data.label}  key={index}/>
+                <Item label={data.label} number={data.number} key={index}/>
                 );
         });
         return (
@@ -67,13 +67,22 @@ var ToDoItems = React.createClass({
 });
 
 var Item = React.createClass({
+    calculateNumber: function() {
+    var inputs = [];
+    for (var i=0; i < this.props.number; i++) {
+        inputs.push(<input type="checkbox" />);
+        console.log("adding to inputs");
+    }
+    this.props.inputs = inputs;
+    },
     render: function() {
+        this.calculateNumber();
         return (
             <div className="toDoItem">
                 <h2 className="label">
                 {this.props.label}
                 </h2>
-                <input type="checkbox" />
+            {this.props.inputs}
             </div>
             );
     }
@@ -83,17 +92,20 @@ var CreateNewItem= React.createClass({
     handleSubmit: function(e) {
         e.preventDefault();
         var label = this.refs.label.getDOMNode().value.trim();
+        var number = this.refs.number.getDOMNode().value.trim();
         if (!label) {
             return;
         }
-        this.props.onItemSubmit({label:label});
+        this.props.onItemSubmit({label:label, number:number});
         this.refs.label.getDOMNode().value = '';
+        this.refs.number.getDOMNode().value = '';
         return;
     },
     render: function() {
         return (
             <form className="listForm" onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="enter a label" ref="label"/>
+                <input type="number" placeholder="enter a number" min="1" max="7" ref="number" />
                 <input type="submit" value="Post" />
             </form>
             );
