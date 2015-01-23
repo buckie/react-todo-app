@@ -55,7 +55,7 @@ class MyHandler(SimpleHTTPRequestHandler):
             comments.append({unicode(field.name): field.value for field in form.list})
             # Write to json_file
             with open('_list.json', 'w+') as json_file:
-                file.write(json.dumps(comments))
+                json_file.write(json.dumps(comments))
 
             sendJSON(self)
         else:
