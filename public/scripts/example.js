@@ -67,7 +67,7 @@ var ToDoItems = React.createClass({
 });
 
 var Item = React.createClass({
-    calculateNumber: function() {
+    createInputs: function() {
     var inputs = [];
     console.log("checked element:" + this.props.hours);
         if (this.props.hours == true){
@@ -77,18 +77,18 @@ var Item = React.createClass({
             }
         }
         else if (this.props.instances == true){
-            console.log("instances checked");
+            inputs.push(<input type="text" placeholder="enter number of hours" min="1" max="10" ref="number" />);
         }
 
         else{
-            console.log("nothing checked");
+            alert("please make a selection");
         }
 
     this.props.inputs = inputs;
     },
     render: function() {
 
-        this.calculateNumber();
+        this.createInputs();
         return (
             <div className="toDoItem">
                 <h2 className="label">
