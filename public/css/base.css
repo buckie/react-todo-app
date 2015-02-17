@@ -60,3 +60,10 @@ p, ul {
 ul {
   padding-left: 30px;
 }
+
+
+.progress-bar{
+    height: 2rem;
+    width: 20rem;
+    background-color: grey;
+}

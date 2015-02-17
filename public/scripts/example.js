@@ -70,14 +70,14 @@ var Item = React.createClass({
     createInputs: function() {
     var inputs = [];
     console.log("checked element:" + this.props.hours);
-        if (this.props.hours == true){
+        if (this.props.instances == true){
             for (var i=0; i < this.props.number; i++) {
-                inputs.push(<input type="checkbox" />);
+                inputs.push(<input type="checkbox" onclick={this.handleChange} />);
                 console.log("adding to inputs");
             }
         }
-        else if (this.props.instances == true){
-            inputs.push(<input type="text" placeholder="enter number of hours" min="1" max="10" ref="number" />);
+        else if (this.props.hours == true){
+            inputs.push(<input type="text" placeholder="enter number of hours" min="1" max="10" ref="number"/>);
         }
 
         else{
@@ -85,6 +85,9 @@ var Item = React.createClass({
         }
 
     this.props.inputs = inputs;
+    },
+    handleChange: function(event) {
+          console.log('change on input field');
     },
     render: function() {
 
@@ -95,6 +98,7 @@ var Item = React.createClass({
                 {this.props.label}
                 </h2>
             {this.props.inputs}
+                <div className="progress-bar"></div>
             </div>
             );
     }
