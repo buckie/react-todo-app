@@ -67,14 +67,19 @@ var ToDoItems = React.createClass({
 });
 
 var Item = React.createClass({
+    handleCheck: function(e) {
+        var amount = 50/this.props.number;
+        $('.progress-bar').css(
+            'width', "+=" + amount);
+    },
     createInputs: function() {
     var inputs = [];
     console.log("checked element:" + this.props.hours);
         if (this.props.instances == true){
             for (var i=0; i < this.props.number; i++) {
-                inputs.push(<input type="checkbox" onclick={this.handleChange} />);
+                inputs.push(<input type="checkbox" onClick={this.handleCheck}/>);
                 console.log("adding to inputs");
-            }
+            };
         }
         else if (this.props.hours == true){
             inputs.push(<input type="text" placeholder="enter number of hours" min="1" max="10" ref="number"/>);
@@ -86,11 +91,7 @@ var Item = React.createClass({
 
     this.props.inputs = inputs;
     },
-    handleChange: function(event) {
-          console.log('change on input field');
-    },
     render: function() {
-
         this.createInputs();
         return (
             <div className="toDoItem">
@@ -111,6 +112,7 @@ var CreateNewItem= React.createClass({
         var number = this.refs.number.getDOMNode().value.trim();
         var hours = this.refs.hours.getDOMNode().checked;
         var instances = this.refs.instances.getDOMNode().checked;
+
         console.log("create new item variables: " + hours);
         if (!label) {
             return;
