@@ -15,8 +15,13 @@ from BaseHTTPServer import HTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
 PUBLIC_PATH = "public"
+SAVE_FILE = '_list.json'
 
-comments = json.loads(open('_list.json').read())
+if os.path.exists('_list.json'):
+    with open('_list.json', 'r+') as json_file:
+        comments = json.loads(json_file.read())
+else:
+    comments = []
 
 def sendJSON(res):
     res.send_response(200)
@@ -31,13 +36,13 @@ class MyHandler(SimpleHTTPRequestHandler):
         return os.path.join(root, path)
 
     def do_GET(self):
-        if (self.path == "/comments.json"):
+        if (self.path == "/list.json"):
             sendJSON(self)
         else:
             SimpleHTTPRequestHandler.do_GET(self)
 
     def do_POST(self):
-        if (self.path == "/comments.json"):
+        if (self.path == "/list.json"):
             form = cgi.FieldStorage(
                 fp=self.rfile,
                 headers=self.headers,
@@ -46,10 +51,20 @@ class MyHandler(SimpleHTTPRequestHandler):
             )
 
             # Save the data
-            comments.append({u"author": form.getfirst("author"), u"text": form.getfirst("text")})
+            # comments.append({u"author": form.getfirst("author"), u"text": form.getfirst("text")})
+            comments.append({unicode(field.name): field.value for field in form.list})
+            # Write to json_file
+            with open('_list.json', 'w+') as json_file:
+                json_file.write(json.dumps(comments))
+
             sendJSON(self)
         else:
-            SimpleHTTPRequestHandler.do_POST(self)
+            raise NotImplementedError("The path requested '{}' has not been implemented on the server yet"
+                                      "".format(self.path))
+
+            # WTF! This method IS NOT provided by SimpleHTTPRequestHandler by default...
+            # SimpleHTTPRequestHandler.do_POST(self)
+
 
 if __name__ == '__main__':
     print "Server started: http://localhost:3000/"
