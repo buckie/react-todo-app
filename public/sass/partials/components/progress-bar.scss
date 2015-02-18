@@ -1,0 +1,15 @@
+.progress-bar--MAIN{
+  width: 400px;
+  border: 1px solid $light-grey;
+  height: 3rem;
+  position: relative;
+}
+
+.progress-bar--progress{
+  height: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $light-grey;
+
+}

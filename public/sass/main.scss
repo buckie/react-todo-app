@@ -1,0 +1,20 @@
+//compass files
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/css3/images";
+@import "compass/css3/font-face";
+@import "breakpoint";
+
+//global
+
+@import "partials/global/variables/all";
+@import "partials/global/extends/all";
+@import "partials/global/mixins/all";
+
+
+//components
+@import "partials/components/header";
+@import "partials/components/item";
+@import "partials/components/items-list";
+@import "partials/components/create-item";
+@import "partials/components/progress-bar";

@@ -1,0 +1,66 @@
+/*
+Error: Undefined variable: "$font-sans".
+        on line 2 of /Users/Erin/Development/react-todo-app/public/sass/partials/components/header.scss
+
+1: .header--MAIN{
+2:   font-family: $font-sans;
+3:   display: block;
+4:   text-align: left;
+5:   padding-top: 2.5rem;
+6:   color: $medium-grey;
+7:   margin-left: 10rem;
+
+Backtrace:
+/Users/Erin/Development/react-todo-app/public/sass/partials/components/header.scss:2
+/usr/local/gems/sass-3.4.10/lib/sass/script/tree/variable.rb:49:in `_perform'
+/usr/local/gems/sass-3.4.10/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:394:in `visit_prop'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/gems/sass-3.4.10/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/gems/sass-3.4.10/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/gems/sass-3.4.10/lib/sass/stack.rb:79:in `with_base'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:430:in `block (2 levels) in visit_rule'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:430:in `map'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:430:in `block in visit_rule'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:428:in `visit_rule'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/gems/sass-3.4.10/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/gems/sass-3.4.10/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/gems/sass-3.4.10/lib/sass/stack.rb:79:in `with_base'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/gems/sass-3.4.10/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/gems/sass-3.4.10/lib/sass/engine.rb:268:in `render'
+/usr/local/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/local/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/usr/local/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/usr/local/gems/listen-1.1.6/lib/listen/listener.rb:236:in `call'
+/usr/local/gems/listen-1.1.6/lib/listen/listener.rb:236:in `on_change'
+/usr/local/gems/listen-1.1.6/lib/listen/listener.rb:271:in `block in initialize_adapter'
+/usr/local/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `call'
+/usr/local/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `report_changes'
+/usr/local/gems/listen-1.1.6/lib/listen/adapter.rb:313:in `poll_changed_directories'
+/usr/local/gems/listen-1.1.6/lib/listen/adapter.rb:289:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$font-sans\".\A         on line 2 of /Users/Erin/Development/react-todo-app/public/sass/partials/components/header.scss\A \A 1: .header--MAIN{\A 2:   font-family: $font-sans;\A 3:   display: block;\A 4:   text-align: left;\A 5:   padding-top: 2.5rem;\A 6:   color: $medium-grey;\A 7:   margin-left: 10rem;"; }

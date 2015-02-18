@@ -42,8 +42,8 @@ var ToDoList = React.createClass({
     },
     render: function() {
         return (
-            <div className="ToDoList">
-                <h1>To Do List</h1>
+            <div className="header--MAIN">
+                <h1 className="header--text">To Do List</h1>
                 <CreateNewItem onItemSubmit={this.handleItemSubmit} />
                 <ToDoItems data={this.state.data} />
             </div>
@@ -76,12 +76,14 @@ var ToDoList = React.createClass({
      },
      render: function() {
          return (
-             <form className="listForm" onSubmit={this.handleSubmit}>
-                 <input type="text" placeholder="enter a label" ref="label"/>
-                 <input type="number" placeholder="enter a number" min="1" max="7" ref="number" />
-                 <input type="radio" name="type" value="hours" ref="hours" />number of hours
-                 <input type="radio" name="type" value="instances" ref="instances"/>number of instances
-                 <input type="submit" value="Post" />
+             <form className="create-item--MAIN" onSubmit={this.handleSubmit}>
+                 <input className="create-item--input-field" type="text" placeholder="enter a label" ref="label"/>
+                 <input className="create-item--input-field" type="number" placeholder="enter a number" min="1" max="7" ref="number" />
+                 <span className="create-item--label">number of hours</span>
+                 <input className="create-item--radio-button" type="radio" name="type" value="hours" ref="hours" />
+                 <span className="create-item--label">number of instances</span>
+                 <input className="create-item--radio-button" type="radio" name="type" value="instances" ref="instances"/>
+                 <input className="create-item--button" type="submit" value="Submit" />
              </form>
              );
      }
@@ -92,8 +94,8 @@ var ToDoList = React.createClass({
 
  var ItemInstance = React.createClass({
      handleCheck: function(e) {
-         var amount = 50/this.props.number;
-         $('.progress-bar').css(
+         var amount = 400/this.props.number;
+         $('.progress-bar--progress').css(
              'width', "+=" + amount);
          return amount;
      },
@@ -108,7 +110,7 @@ var ToDoList = React.createClass({
      render: function() {
          this.createItemInstance();
          return (
-             <form className="checkboxes-list">
+             <form className="instance--checkboxes">
              {this.props.checkboxes}
                  </form>
              );
@@ -127,11 +129,23 @@ var ToDoList = React.createClass({
      },
      render: function() {
          return (
-             <form className="submit-item">
-                 <input type="text" name="type" value="hours" ref="hours" placeholder="enter number of hours" min="1" max="10" ref="number"/>
-                 <input type="submit" value="Post" />
+             <form className="hours--submit-items">
+                 <input className="hours--input-field" type="text" name="type" value="hours" ref="hours" placeholder="enter number of hours" min="1" max="10" ref="number"/>
+                 <input className="hours--submit" type="submit" value="Post" />
              </form>
              );
+     }
+
+ });
+
+ var ProgressBar = React.createClass({
+
+     render: function(){
+         return(
+             <div className="progress-bar--MAIN">
+                 <div className="progress-bar--progress"></div>
+                 </div>
+             )
      }
 
  });
@@ -160,12 +174,12 @@ var ToDoList = React.createClass({
      render: function() {
          this.createInputs();
          return (
-             <div className="toDoItem">
-                 <h2 className="label">
+             <div className="item--MAIN">
+                 <h2 className="item--label">
                 {this.props.label}
                  </h2>
             {this.props.inputs}
-                 <div className="progress-bar"></div>
+             <ProgressBar/>
              </div>
              );
      }
@@ -182,7 +196,7 @@ var ToDoItems = React.createClass({
                 );
         });
         return (
-            <div class="toDoItems">
+            <div className="items-list--MAIN">
                 {listNodes}
                 </div>
             );

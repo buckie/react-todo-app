@@ -1,0 +1,59 @@
+/*
+Syntax error: File to import not found or unreadable: compass/reset.
+              Load paths:
+                E:/Program Files (x86)/xampp/htdocs/erindepew (DEPRECATED)
+                E:/Program Files (x86)/xampp/htdocs/erindepew/sass
+        on line 2 of sass/main.scss
+
+1: //compass files
+2: @import "compass/reset";
+3: @import "compass/css3";
+4: @import "compass/css3/images";
+5: 
+6: //partials
+7: @import "partials/global/global";
+
+Backtrace:
+sass/main.scss:2
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/import_node.rb:66:in `rescue in import'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/import_node.rb:45:in `import'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/import_node.rb:28:in `imported_file'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/import_node.rb:37:in `css_import?'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:283:in `visit_import'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/stack.rb:79:in `block in with_base'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/stack.rb:121:in `with_frame'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/stack.rb:79:in `with_base'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:152:in `visit'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/base.rb:52:in `map'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:151:in `visit'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/visitors/perform.rb:8:in `visit'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/root_node.rb:36:in `css_tree'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/tree/root_node.rb:20:in `render'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:274:in `render'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `each'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:393:in `on_file_changed'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:248:in `block in watch'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:252:in `call'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+E:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: compass/reset.\A               Load paths:\A                 E:/Program Files (x86)/xampp/htdocs/erindepew (DEPRECATED)\A                 E:/Program Files (x86)/xampp/htdocs/erindepew/sass\A         on line 2 of sass/main.scss\A \A 1: //compass files\A 2: @import \"compass/reset\";\A 3: @import \"compass/css3\";\A 4: @import \"compass/css3/images\";\A 5: \A 6: //partials\A 7: @import \"partials/global/global\";"; }
