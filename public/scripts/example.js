@@ -7,7 +7,9 @@ var ToDoList = React.createClass({
             url: this.props.url,
             dataType: 'json',
             success: function(data) {
+                console.log("Successful AJAX State Update:"); console.log(data);
                 this.setState({data: data});
+                console.log("State Set to"); console.log(this.state);
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -17,6 +19,7 @@ var ToDoList = React.createClass({
     handleItemSubmit: function(item) {
         console.log("submit function successful");
         var items = this.state.data;
+        console.log("State on submit"); console.log(this.state);
         items.push(item);
         this.setState({data: items}, function() {
         $.ajax({
@@ -25,7 +28,9 @@ var ToDoList = React.createClass({
             type: 'POST',
             data: item,
             success: function(data) {
+                console.log("Successful AJAX Item Submit:"); console.log(data);
                 this.setState({data: data});
+                console.log("State Set to"); console.log(this.state);
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -190,9 +195,9 @@ var ToDoList = React.createClass({
 
 var ToDoItems = React.createClass({
     render: function() {
-        var listNodes = this.props.data.map(function (data, index) {
+        var listNodes = this.props.data.map(function (data) {
             return (
-                <Item label={data.label} number={data.number} hours={data.hours} instances={data.instances} key={index}/>
+                <Item label={data.label} number={data.number} hours={data.hours} instances={data.instances} key={data.index}/>
                 );
         });
         return (
@@ -208,6 +213,6 @@ var ToDoItems = React.createClass({
 
 
 React.render(
-    <ToDoList url="list.json" pollInterval={2000} />,
+    <ToDoList url="/json/list" pollInterval={2000} />,
     document.getElementById('content')
 );
